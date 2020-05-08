@@ -1,0 +1,26 @@
+[
+  {
+    "model": "tft.champion",
+    "pk": 1,
+    "fields": {
+      "name": "Ahri",
+      "championId": "TFT3_Ahri"
+    }
+  },
+  {
+    "model": "tft.champion",
+    "pk": 1,
+    "fields": {
+      "name": "Annie",
+      "championId": "TFT3_Annie"
+    }
+  },
+  {
+    "model": "tft.champion",
+    "pk": 1,
+    "fields": {
+      "name": "Ashe",
+      "championId": "TFT3_Ashe"
+    }
+  }
+]
