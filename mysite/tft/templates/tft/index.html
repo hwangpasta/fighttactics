@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% if champion_list %}
+    <ul>
+    {% for champion in champion_list %}
+        <li><a href="/tft/{{ champion.id }}/">{{ champion.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No champions are available.</p>
+{% endif %}
+</head>
+<body>
+
+</body>
+</html>
