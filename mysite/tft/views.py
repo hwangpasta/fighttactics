@@ -1,13 +1,16 @@
-from django.http import HttpResponse, request
+from django.http import HttpResponse, request, Http404
 from django.template import loader
+from django.shortcuts import get_object_or_404, render
 from .models import Champion
 
+
+
 def index(request):
-    champion_list = Champion.
+    champion_list = Champion.objects.order_by('-name')
     template = loader.get_template('tft/index.html')
-    context = {'champion_list': champion_list}
+    context = {'champion_list':champion_list}
     return HttpResponse(template.render(context,request))
 
-def Champion(request, champion_id):
-    response = "You're looking at the champion page."
-    return HttpResponse(response % champion_id)
+def detail(request, champion_id):
+    champion = get_object_or_404(Champion, pk=champion_id)
+    return render(request, 'tft/detail.html', {'champion': champion})
