@@ -22,6 +22,25 @@ Possible workarounds:
 </p>
 </div>
 <head>
+    <style>
+#div1 {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+    <script>
+        function allowDrop(ev) {ev.preventDefault();}
+        function drag(ev) {ev.dataTransfer.setData("image", ev.target.id);}
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("image");
+            ev.target.appendChild(document.getElementById(data));
+}
+
+    </script>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 {% if champion_list %}
 <div class="container">
 <table class = "table table-striped">
@@ -33,11 +52,12 @@ Possible workarounds:
     {% for champion in champion_list %}
     <tr>
         <td><li><a href="/tft/{{ champion.id }}/">{{ champion.name }} </a></li></td>
-        <td><img src="{% static "tft/images/Ahri.png" %}" alt="My image"></td>
+        <td><img id= "drag1" src="{% static "tft/images/"|add:champion.name|add:".png" %}" alt="My image" ondragstart="drag(event)" draggable="true"></td>
     {% endfor %}
     </tr>
 </table>
 </div>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 {% else %}
     <p>No champions are available.</p>
     {% endif %}
