@@ -6,7 +6,7 @@ from .models import Champion
 
 
 def index(request):
-    champion_list = Champion.objects.order_by('-name')
+    champion_list = Champion.objects.all()
     template = loader.get_template('tft/index.html')
     context = {'champion_list':champion_list}
     return HttpResponse(template.render(context,request))
