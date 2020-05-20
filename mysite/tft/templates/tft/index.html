@@ -11,23 +11,53 @@
 <html lang="en">
 {%load static %}
 <div class="jumbotron text-center">
-
-<h1> TFT CHAMPION PAGE </h1>
-    <p> It seems to be having issues accessing the individual images for each champion.</p>
+<h1 style="font-family: 'Lucida Handwriting'"> TFT CHAMPION PAGE </h1>
+    <p> It seems to be having issues being able to drag multiple items to different spots.</p>
     <p>
-Possible workarounds:
-    1. the path of the image for each champion becomes an attribute of Class Champion. Then I can just reference
-    the class attribute and the image and champion are linked.
-    2. There is some way to access the champion name within the html file... champion.name (curly braces) doesn't work.
+Need to fix order of spots and somehow change id with each champion.
 </p>
 </div>
 <head>
     <style>
 #div1 {
-  width: 350px;
-  height: 70px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+#div2 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+#div3 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+#div4 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+#div5 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
 }
 </style>
     <script>
@@ -41,6 +71,10 @@ Possible workarounds:
 
     </script>
     <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 {% if champion_list %}
 <div class="container">
@@ -53,7 +87,7 @@ Possible workarounds:
     {% for champion in champion_list %}
     <tr>
         <td><li><a href="/tft/{{ champion.id }}/">{{ champion.name }} </a></li></td>
-        <td><img id= "drag1" src="{% static "tft/images/"|add:champion.name|add:".png" %}" alt="My image" ondragstart="drag(event)" draggable="true"></td>
+        <td><img id= "|add:champion.id" src="{% static "tft/images/"|add:champion.name|add:".png" %}" alt="My image" ondragstart="drag(event)" draggable="true"></td>
     {% endfor %}
     </tr>
 </table>
