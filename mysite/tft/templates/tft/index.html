@@ -13,10 +13,18 @@
 <div class="jumbotron text-center">
 
 <h1> TFT CHAMPION PAGE </h1>
+    <p> It seems to be having issues accessing the individual images for each champion.</p>
+    <p>
+Possible workarounds:
+    1. the path of the image for each champion becomes an attribute of Class Champion. Then I can just reference
+    the class attribute and the image and champion are linked.
+    2. There is some way to access the champion name within the html file... champion.name (curly braces) doesn't work.
+</p>
 </div>
 <head>
 {% if champion_list %}
-<table>
+<div class="container">
+<table class = "table table-striped">
     <tr>
         <th> Champion </th>
         <th> TFT In-Game Icon </th>
@@ -29,6 +37,7 @@
     {% endfor %}
     </tr>
 </table>
+</div>
 {% else %}
     <p>No champions are available.</p>
     {% endif %}
